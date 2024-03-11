@@ -4,6 +4,8 @@
   <h2>{{ type || 'No Type' }}</h2>
   <div *ngFor="let content of contentArray | dataFilter: type"
   >
+  <app-create-content (createContent)="addContent($event)"></app-create-content>
+<p *ngIf="showError" class="error">Content Failed to be added</p>
     <app-content-card
       [content]="content"
       [index]="contentArray.indexOf(content)"

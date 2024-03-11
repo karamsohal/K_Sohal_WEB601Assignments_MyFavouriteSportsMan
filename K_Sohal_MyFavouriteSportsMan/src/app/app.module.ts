@@ -9,13 +9,15 @@ import { DataFilterPipe } from './data-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HoverAffectDirective } from './hover-affect.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ContentCardComponent,
     ContentListComponent,
     DataFilterPipe,
-    HoverAffectDirective
+    HoverAffectDirective,
+    CreateContentComponent
   ],
   imports: [
     BrowserModule,

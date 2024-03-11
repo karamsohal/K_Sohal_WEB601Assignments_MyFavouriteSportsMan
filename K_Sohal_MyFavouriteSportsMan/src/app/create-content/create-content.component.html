@@ -1,0 +1,48 @@
+<form (submit)="onSubmit($event, {id: id.valueAsNumber, title:title.value, description:description.value, creator:creator.value, imgURL:imgURL.value, type:type.value, tags:[tags.value]})">
+    <p *ngIf="invalidRequest" class="error">You must enter required fields</p>
+    <label for="id">
+        ID:
+        <br>
+        <input type="number" name="id" #id/>
+    </label>
+    <br>
+    <label for="title">
+        Title:
+        <br>
+        <input type="text" name="title" #title/>
+    </label>
+    <br>
+    <label for="description">
+        Description:
+        <br>
+        <input type="text" name="description" #description/>
+    </label>
+    <br>
+    <label for="creator">
+        Creator:
+        <br>
+        <input type="text" name="creator" #creator/>
+    </label>
+    <br>
+    <label for="imgURL">
+        imgURL:
+        <br>
+        <input type="text" name="imgURL" #imgURL/>
+    </label>
+    <br>
+    <label for="type">
+        Type:
+        <br>
+        <input type="text" name="type" #type/>
+    </label>
+    <br>
+    <label for="tags">
+        Tags:
+        <br>
+        <input type="text" name="tags" #tags/>
+    </label>
+    <br>
+    <input type="submit" value="Create"/>
+    <br>
+    <br>
+</form>

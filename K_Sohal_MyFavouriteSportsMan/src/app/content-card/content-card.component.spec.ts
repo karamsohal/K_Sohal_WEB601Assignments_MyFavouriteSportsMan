@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CreateContentComponent } from '../create-content/create-content.component';
 import { ContentCardComponent } from './content-card.component';
 
 describe('ContentCardComponent', () => {

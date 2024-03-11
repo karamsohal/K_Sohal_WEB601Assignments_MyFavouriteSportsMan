@@ -1,3 +1,4 @@
+import { CreateContentComponent } from '../create-content/create-content.component';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 

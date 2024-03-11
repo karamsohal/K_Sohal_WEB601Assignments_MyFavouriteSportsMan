@@ -1,8 +1,11 @@
+import { CreateContentComponent } from '../create-content/create-content.component';
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 
 @Component({
   selector: 'app-content-list',
+  standalone: true,
+  imports:[CreateContentComponent],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -17,6 +20,7 @@ export class ContentListComponent implements OnInit {
     { id: 7, title: 'Leo Messi', description: 'Lionel Andrés "Leo" Messi[note 1] (Spanish pronunciation: [ljoˈnel anˈdɾes ˈmesi] ⓘ; born 24 June 1987) is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team.', creator: 'Self', imgURL: 'https://th.bing.com/th/id/OIP.rMdp-VivUVTI7CMRxwXWVAHaKq?rs=1&pid=ImgDetMain', type: '', tags: ['Argentina', 'football'] },
   ];
 
+  showError: boolean = false;
   typeList: string[] = [];
   searchTitle: string = '';
   searchMessage: string = '';
@@ -55,5 +59,15 @@ export class ContentListComponent implements OnInit {
 
   handleImageClick(id: number, title: string): void {
     console.log(`Clicked on image with ID: ${id}, Title: ${title}`);
+  }
+
+  addContent(content: Promise<Content>) {
+    content.then((newContent) => {
+      this.contentArray = [...this.contentArray, newContent]
+      this.showError = false;
+      
+    }).catch(() => {
+      this.showError = true;
+    })
   }
 }
